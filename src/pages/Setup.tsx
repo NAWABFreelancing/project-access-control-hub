@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Card, CardContent } from "@/components/ui/card";
-import { Steps, Step } from "@/components/ui/steps";
+import { Steps as UISteps, Step } from "@/components/ui/steps";
 import CheckMysqlStatus from "@/components/CheckMysqlStatus";
 import DatabaseConnectionForm from "@/components/DatabaseConnectionForm";
 import SetupDatabase from "@/components/SetupDatabase";
@@ -12,7 +12,7 @@ import SetupComplete from "@/components/SetupComplete";
 import { DatabaseCredentials, saveDatabaseConfig } from "@/utils/databaseUtils";
 
 // Custom Steps component
-const Steps = ({ currentStep }: { currentStep: number }) => {
+const SetupSteps = ({ currentStep }: { currentStep: number }) => {
   const steps = [
     "Check MySQL",
     "Connect",
@@ -100,7 +100,7 @@ const Setup = () => {
       </div>
       
       <div className="relative mx-auto w-full max-w-2xl">
-        <Steps currentStep={currentStep} />
+        <SetupSteps currentStep={currentStep} />
         
         <div className="flex justify-center mt-8">
           {currentStep === 0 && (
